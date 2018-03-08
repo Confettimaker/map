@@ -1,6 +1,17 @@
 #ifndef MAP_ARRAY_H
 #define MAP_ARRAY_H
 
+#include <exception>
+
+class OutOfBoundsException : public std::exception
+{
+  public:
+    virtual const char * what() const throw()
+    {
+      return "Array out of bounds!";
+    }
+};
+
 template <typename T>
 class MapArray
 {
@@ -31,6 +42,13 @@ class MapArray
       {
         data[i] = rhs.data[i];
       }
+    }
+
+    T & at(const int index)
+    {
+      if (index < data_size && index >= 0)
+        return data[index];
+      throw OutOfBoundsException();
     }
 
     bool push(const T & val)
