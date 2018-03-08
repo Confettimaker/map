@@ -60,7 +60,7 @@ class MapArray
     }
 
     template <typename E>
-    MapArray<T> map(E func)
+    MapArray<T> map(E func) const
     {
       MapArray<T> temp(m_size);
       for (int i = 0;i < data_size;i++)
