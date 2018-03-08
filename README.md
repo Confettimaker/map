@@ -1,2 +1,2 @@
 # map
-C++ Array Map
+C++ implementation of the map functionality for arrays
