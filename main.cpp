@@ -47,5 +47,14 @@ int main()
 
   cout << endl;
 
+  cout << "-- Pop Test --" << endl << endl;
+
+  while (array.pop())
+  {
+    cout << "Array Size: " << array.size() << endl;
+  }
+
+  cout << endl;
+
   return 0;
 }

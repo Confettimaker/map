@@ -1,6 +1,8 @@
 #ifndef MAP_ARRAY_H
 #define MAP_ARRAY_H
 
+#include <iostream>
+
 template <typename T>
 class MapArray
 {
@@ -42,11 +44,19 @@ class MapArray
       return false;
     }
 
+    int size() const
+    {
+      return data_size;
+    }
+
     template <typename E>
     void map(E func)
     {
       for (int i = 0;i < data_size;i++)
+      { 
+        std::cout << "I: " << i << std::endl; 
         func(data[i]);
+      }
     }
 
 };
