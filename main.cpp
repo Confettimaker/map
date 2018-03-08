@@ -6,14 +6,15 @@ using std::cout;
 using std::endl;
 
 
-void square(int & n)
+int square(int n)
 {
-  n = (n * n);
+  return (n * n);
 }
 
-void print(const int & n)
+int print(const int n)
 {
   cout << "[ " << n << " ] ";
+  return n;
 }
 
 int main()
@@ -39,7 +40,11 @@ int main()
 
   cout << endl;
 
-  array.map(square);
+  array = array.map(square);
+
+  int * item_ = &array.at(size - 1);
+
+  *item_ = 900;
 
   cout << "-- After Square Mapping -- " << endl << endl;
 
@@ -55,6 +60,8 @@ int main()
   }
 
   cout << endl;
+
+  cout << "Item: " << *item_ << endl;
 
   return 0;
 }
