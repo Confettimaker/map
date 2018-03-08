@@ -21,6 +21,18 @@ class MapArray
       data = nullptr;
     }
 
+    void operator =(const MapArray<T> & rhs)
+    {
+      delete [] data;
+      m_size = rhs.m_size;
+      data = new T[m_size];
+      data_size = rhs.data_size;
+      for (int i = 0;i < data_size;i++)
+      {
+        data[i] = rhs.data[i];
+      }
+    }
+
     bool push(const T & val)
     {
       if (data_size < m_size)
@@ -48,10 +60,14 @@ class MapArray
     }
 
     template <typename E>
-    void map(E func)
+    MapArray<T> map(E func)
     {
+      MapArray<T> temp(m_size);
       for (int i = 0;i < data_size;i++)
-        func(data[i]);
+      {
+        temp.push(func(data[i]));
+      }
+      return temp;
     }
 
 };
