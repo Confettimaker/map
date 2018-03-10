@@ -51,6 +51,13 @@ class MapArray
       throw OutOfBoundsException();
     }
 
+    T at(const int index) const
+    {
+      if (index < data_size && index >= 0)
+        return data[index];
+      throw OutOfBoundsException();
+    }
+
     bool push(const T & val)
     {
       if (data_size < m_size)
